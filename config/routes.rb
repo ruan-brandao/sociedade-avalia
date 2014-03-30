@@ -5,6 +5,10 @@ SociedadeAvalia::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  scope '/mockups', :constraints => lambda { |e| Rails.env.development? } do
+    get '/:action', :controller => 'mockups', :actions => /[^\/]+/
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
