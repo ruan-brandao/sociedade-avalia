@@ -20,6 +20,8 @@ gem 'puma'
 
 gem 'jbuilder', '~> 1.2'
 
+gem 'devise'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'capybara'
