@@ -1,2 +1,14 @@
 pt-BR:
   hello: "Olá"
+
+  activerecord:
+    models:
+      user: Usuário
+    attributes:
+      user:
+        email: E-mail
+        password: Senha
+        password_confirmation: Confirme a senha
+        first_name: Nome
+        last_name: Sobrenome
+        username: Nome de Usuário
