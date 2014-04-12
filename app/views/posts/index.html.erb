@@ -1,31 +1,19 @@
 <h1>Listing posts</h1>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Likes</th>
-      <th>Dislikes</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr id="<%= dom_id(post) %>">
-        <td><%= post.content %></td>
-        <td><%= post.likes %></td>
-        <td><%= post.dislikes %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, remote: true %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<div id="posts">
+  <%= render @posts %>
+</div>
 <br>
 
+<%= form_for(Post.new, remote: true) do |f| %>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<br>
 <%= link_to 'New Post', new_post_path %>

@@ -1,0 +1,8 @@
+<%= div_for post do %>
+	<%= post.content %>
+  <%= post.likes %>
+  <%= post.dislikes %>
+  <%= link_to 'Show', post %>
+  <%= link_to 'Edit', edit_post_path(post) %>
+  <%= link_to 'Destroy', post, method: :delete, remote: true %>
+<% end %>
