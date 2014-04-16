@@ -23,7 +23,7 @@ describe PostsController do
   # This should return the minimal set of attributes required to create a valid
   # Post. As you add validations to Post, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "content" => "MyText" } }
+  let(:valid_attributes) { { "content" => "MyText", "likes" => 0, "dislikes" => 0 } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -146,14 +146,8 @@ describe PostsController do
     it "destroys the requested post" do
       post = Post.create! valid_attributes
       expect {
-        delete :destroy, {:id => post.to_param}, valid_session
+        xhr :delete, :destroy, {:id => post.to_param}, valid_session, format: 'javascript'
       }.to change(Post, :count).by(-1)
-    end
-
-    it "redirects to the posts list" do
-      post = Post.create! valid_attributes
-      delete :destroy, {:id => post.to_param}, valid_session
-      expect(response).to redirect_to(posts_url)
     end
   end
 
