@@ -18,6 +18,14 @@
 		<% end %>
 
 		<%= yield %>
+
+		<% if user_signed_in? %>
+			<br /><p><%= current_user.username %></p><br />
+			<%= link_to "Logout", destroy_user_session_path, method: :delete  %>
+		<% else %>
+			<br /><%= link_to "Sign in", new_session_path(User) %><br />
+			<%= link_to "Sign up", new_registration_path(User) %>
+		<% end %>
 	</div>
 
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>

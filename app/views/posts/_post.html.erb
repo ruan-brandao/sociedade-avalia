@@ -3,6 +3,8 @@
   <%= post.likes %>
   <%= post.dislikes %>
   <%= link_to 'Show', post %>
-  <%= link_to 'Edit', edit_post_path(post) %>
-  <%= link_to 'Destroy', post, method: :delete, remote: true %>
+  <% if user_signed_in? && current_user == post.user %>
+  	<%= link_to 'Edit', edit_post_path(post) %>
+  	<%= link_to 'Destroy', post, method: :delete, remote: true %>
+  <% end %>
 <% end %>
