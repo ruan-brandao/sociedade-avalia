@@ -5,15 +5,15 @@
 </div>
 <br>
 
-<%= form_for(Post.new, remote: true) do |f| %>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% if user_signed_in? %>
+	<%= form_for(Post.new, remote: true) do |f| %>
+	  <div class="field">
+	    <%= f.label :content %><br>
+	    <%= f.text_area :content %>
+	  </div>
+	  <div class="actions">
+	    <%= f.submit %>
+	  </div>
+	<% end %>
 <% end %>
 
-<br>
-<%= link_to 'New Post', new_post_path %>
