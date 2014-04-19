@@ -11,10 +11,29 @@
 	position: relative;
 }
 
+.post-author {
+	display: inline;
+}
+
+.post-options {
+	right: 0;
+	top: 0;
+	float: right;
+}
+
+.post-content {
+	padding: 10px 5px;
+}
+
+
 .post-footer{
 	bottom: 0;
 	position: absolute;
+	margin-top: 10px;
 }
+
+
+
 
 .like {
 	color: green;
@@ -24,6 +43,7 @@
 	color: red;
 }
 
-.icon {
+.thumb-icon {
 	margin: 5px;
 }
+
