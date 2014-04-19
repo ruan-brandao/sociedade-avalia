@@ -1,11 +1,15 @@
-<%= div_for post do %>
-	<%= post.user.email %>
-	<%= post.content %>
-  <%= post.likes %>
-  <%= post.dislikes %>
-  <%= link_to 'Show', post %>
-  <% if user_signed_in? && current_user == post.user %>
-  	<%= link_to 'Edit', edit_post_path(post) %>
-  	<%= link_to 'Destroy', post, method: :delete, remote: true %>
-  <% end %>
-<% end %>
+<div class="row">
+	<%= div_for post, :class => ".col-sm-8" do %>
+		<%= post.user.email %>
+		<%= post.content %>
+	  <%= link_to 'Show', post %>
+	  <% if user_signed_in? && current_user == post.user %>
+	  	<%= link_to 'Edit', edit_post_path(post) %>
+	  	<%= link_to 'Destroy', post, method: :delete, remote: true %>
+	  <% end %>
+	  <div class="post-footer">
+		<span class="like"><i class="fa fa-thumbs-o-up fa-lg icon"></i><%= post.likes %></span>
+	  <span class="dislike"><i class="fa fa-thumbs-o-down fa-lg icon"></i><%= post.dislikes %></span>
+	</div>
+	<% end %>
+</div>
