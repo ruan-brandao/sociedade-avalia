@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :like, :dislike]
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /posts
@@ -63,6 +63,14 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def like
+    @post.like += 1
+  end
+
+  def dislike
+    @post.dislike += 1
   end
 
   private
