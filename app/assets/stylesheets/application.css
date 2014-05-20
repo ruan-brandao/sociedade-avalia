@@ -10,6 +10,7 @@
  *
  *= require bootstrap
  *= require font-awesome
+ *= require varela-round
  *= require_self
  *= require_tree .
  */
