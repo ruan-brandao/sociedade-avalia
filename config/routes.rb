@@ -1,16 +1,13 @@
 SociedadeAvalia::Application.routes.draw do
-  resources :posts
+  # resources :posts
 
-  devise_for :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  # devise_for :users
 
-  # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  # root 'welcome#index'
 
-  scope '/mockups', :constraints => lambda { |e| Rails.env.development? } do
-    get '/:action', :controller => 'mockups', :actions => /[^\/]+/
-  end
+  # scope '/mockups', :constraints => lambda { |e| Rails.env.development? } do
+  #   get '/:action', :controller => 'mockups', :actions => /[^\/]+/
+  # end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
