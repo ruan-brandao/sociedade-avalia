@@ -3,7 +3,7 @@ SociedadeAvalia::Application.routes.draw do
 
   # devise_for :users
 
-  # root 'welcome#index'
+  root 'welcome#index'
 
   # scope '/mockups', :constraints => lambda { |e| Rails.env.development? } do
   #   get '/:action', :controller => 'mockups', :actions => /[^\/]+/
