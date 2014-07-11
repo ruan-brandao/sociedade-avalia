@@ -1,13 +1,13 @@
 SociedadeAvalia::Application.routes.draw do
-  # resources :posts
+  resources :posts
 
-  # devise_for :users
+  devise_for :users
 
   root 'welcome#index'
 
-  # scope '/mockups', :constraints => lambda { |e| Rails.env.development? } do
-  #   get '/:action', :controller => 'mockups', :actions => /[^\/]+/
-  # end
+  scope '/mockups', :constraints => lambda { |e| Rails.env.development? } do
+    get '/:action', :controller => 'mockups', :actions => /[^\/]+/
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

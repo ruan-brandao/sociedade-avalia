@@ -1,0 +1,16 @@
+<header>
+	<div class="container">
+		<i class="fa fa-check-square-o fa-3x home-icon"></i>
+
+		<i class="fa fa-home fa-3x navbar-icon"></i>
+  	<i class="fa fa-trophy fa-3x navbar-icon"></i>
+ 		<i class="fa fa-bell fa-3x navbar-icon"></i>
+
+ 		<% if user_signed_in? %>
+ 			Hello <%= current_user.email %>!!!    |    
+ 			<%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+ 		<% else %>
+ 			<%= link_to "Entrar", user_session_path %>
+ 		<% end %>
+	</div>
+</header>
