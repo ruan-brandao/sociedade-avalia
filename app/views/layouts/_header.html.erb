@@ -1,16 +1,40 @@
 <header>
-	<div class="container">
-		<i class="fa fa-check-square-o fa-3x home-icon"></i>
+	<nav role="navigation container">
+		<div class="container">
 
-		<i class="fa fa-home fa-3x navbar-icon"></i>
-  	<i class="fa fa-trophy fa-3x navbar-icon"></i>
- 		<i class="fa fa-bell fa-3x navbar-icon"></i>
+			<div class="dropdown pull-right">
+	 			<button class="btn btn-default dropdown-toggle navbar-menu-dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown">
+    			<i class="fa fa-bars fa-2x navbar-icon"></i>
+  			</button>
+  			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+			    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+			  </ul>
+	 		</div>
 
- 		<% if user_signed_in? %>
- 			Hello <%= current_user.email %>!!!    |    
- 			<%= link_to "Sair", destroy_user_session_path, :method => :delete %>
- 		<% else %>
- 			<%= link_to "Entrar", user_session_path %>
- 		<% end %>
-	</div>
+	 		<form class="navbar-collapse collapse pull-right">
+	 			<div class="nav navbar-nav navbar-search-form">
+		 			<div class="input-group">
+					  <input type="text" class="form-control" >
+					  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+					</div>
+				</div>
+	 		</form>
+
+			<i class="fa fa-check-square fa-3x home-icon"></i>
+
+	 		<% if user_signed_in? %>
+	 			<i class="fa fa-bell fa-2x navbar-icon"></i>
+	 			<i class="fa fa-paper-plane fa-2x navbar-icon"></i>
+	 		<% else %>
+	 			<%= link_to "Cadastrar", new_user_registration_path, :class => "btn btn-default navbar-button" %>
+	 			<%= link_to "Entrar", user_session_path, :class => "btn btn-default navbar-button" %>
+	 		<% end %>
+	 		
+	 		<button type="button" class="navbar-toggle search-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	 			<i class="fa fa-search fa-2x navbar-icon"></i>
+	 		</button>
+
+		</div>
+	</nav>
 </header>

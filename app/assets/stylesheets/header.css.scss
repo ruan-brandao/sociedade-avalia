@@ -12,5 +12,53 @@ header .fa {
 }
 
 .home-icon {
+	color: #eee;
+	margin-right: .3em;
+}
+
+.navbar-button {
+	background-color: #256929;
 	color: white;
+	margin: 0 .2em;
+	margin-bottom: 1.37em;
+	position: relative;
+}
+
+.navbar-button:hover {
+	background-color: #2E9633;
+}
+
+.navbar-button:visited {
+	color: white;
+}
+
+.search-toggle {
+	margin: 0;
+	padding-top: .5em;
+	position: absolute;
+	right: 5em;
+}
+
+.navbar-search-form {
+	padding: .2em;
+	background-color: #e57d1d;
+	margin-top: .7em;
+}
+
+.navbar-menu-dropdown {
+	background-color: #e57d1d;
+	margin-top: .3em;
+	padding-top: 3px;
+	border-color: #eee;
+}
+
+
+.navbar-menu-dropdown:hover,
+.navbar-menu-dropdown:focus,
+.navbar-menu-dropdown.focus,
+.navbar-menu-dropdown:active,
+.navbar-menu-dropdown.active,
+.open > .dropdown-toggle.navbar-menu-dropdown {
+	background-color: #FF8316;
+	border-color: #eee;
 }
