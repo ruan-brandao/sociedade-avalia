@@ -9,6 +9,9 @@ SociedadeAvalia::Application.routes.draw do
     get '/:action', :controller => 'mockups', :actions => /[^\/]+/
   end
 
+  get 'sobre_nos' => 'pages#about_us'
+  get 'termos' => 'pages#terms_of_use'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
