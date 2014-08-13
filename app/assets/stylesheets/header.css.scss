@@ -1,12 +1,17 @@
 header {
 	background-color: #e57d1d;
-	height: 4.375em;
+	max-height: 4.375em;
 }
 
 header .fa {
 	margin-top: 0.27em;
 }
 
+@media (min-width: 768px) {
+	header form {
+		max-width: 290px;
+	}
+}
 .navbar-icon {
 	color: #eee;
 }
@@ -62,3 +67,4 @@ header .fa {
 	background-color: #FF8316;
 	border-color: #eee;
 }
+
