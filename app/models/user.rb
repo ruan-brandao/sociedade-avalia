@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts
+
+  validates :first_name, :last_name, :birth_date, :gender, :username, presence: true
+  validates :username, uniqueness: true
+  validates :gender, inclusion: { in: %w(male female) }
 end
