@@ -7,6 +7,10 @@
     			<i class="fa fa-bars fa-2x navbar-icon"></i>
   			</button>
   			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+  				<% if user_signed_in? %>
+  					<li role="presentation"><%= link_to t('devise.views.sign_out'), destroy_user_session_path, :method => :delete %></li>
+  					<li role="presentation" class="divider"></li>
+  				<% end %>
 			    <li role="presentation"><%= link_to 'Sobre nós', sobre_nos_path %></li>
 			    <li role="presentation"><%= link_to 'Termos de Uso', termos_path %></li>
 			  </ul>
@@ -27,8 +31,8 @@
 	 			<i class="fa fa-bell fa-2x navbar-icon"></i>
 	 			<i class="fa fa-paper-plane fa-2x navbar-icon"></i>
 	 		<% else %>
-	 			<%= link_to "Cadastrar", new_user_registration_path, :class => "btn btn-default navbar-button" %>
-	 			<%= link_to "Entrar", user_session_path, :class => "btn btn-default navbar-button" %>
+	 			<%= link_to t('devise.views.sign_up'), new_user_registration_path, :class => "btn btn-default navbar-button" %>
+	 			<%= link_to t('devise.views.sign_in'), user_session_path, :class => "btn btn-default navbar-button" %>
 	 		<% end %>
 	 		
 	 		<button type="button" class="navbar-toggle search-toggle" data-toggle="collapse" data-target=".navbar-collapse">
