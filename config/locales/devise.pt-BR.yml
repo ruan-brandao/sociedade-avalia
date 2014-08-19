@@ -6,6 +6,7 @@ pt-BR:
       sign_up: 'Cadastrar'
       sign_in: 'Entrar'
       sign_out: 'Sair'
+      remember_me: 'Lembrar-me'
     confirmations:
       confirmed: 'Sua conta foi confirmada com sucesso. Você está logado.'
       send_instructions: 'Dentro de minutos, você receberá um e-mail com instruções para a confirmação da sua conta.'
