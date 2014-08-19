@@ -1,7 +1,7 @@
 SociedadeAvalia::Application.routes.draw do
   resources :posts
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
 
   root 'welcome#index'
 

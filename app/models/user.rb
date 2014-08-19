@@ -8,5 +8,5 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, :birth_date, :gender, :username, presence: true
   validates :username, uniqueness: true
-  validates :gender, inclusion: { in: %w(male female) }
+  validates :gender, inclusion: { in: %w(male female other) }
 end
