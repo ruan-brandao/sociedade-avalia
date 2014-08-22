@@ -8,7 +8,12 @@
   			</button>
   			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
   				<% if user_signed_in? %>
-  					<li role="presentation"><%= link_to t('devise.views.sign_out'), destroy_user_session_path, :method => :delete %></li>
+  					<li role="presentation">
+  						<%= link_to current_user.full_name, "/#{current_user.username}" %>
+  					</li>
+  					<li role="presentation">
+  						<%= link_to t('devise.views.sign_out'), destroy_user_session_path, :method => :delete %>
+  					</li>
   					<li role="presentation" class="divider"></li>
   				<% end %>
 			    <li role="presentation"><%= link_to 'Sobre nós', sobre_nos_path %></li>
@@ -28,8 +33,9 @@
 			<i class="fa fa-check-square fa-3x home-icon"></i>
 
 	 		<% if user_signed_in? %>
-	 			<i class="fa fa-bell fa-2x navbar-icon"></i>
+	 			<i class="fa fa-home fa-2x navbar-icon"></i>
 	 			<i class="fa fa-paper-plane fa-2x navbar-icon"></i>
+	 			<i class="fa fa-bell fa-2x navbar-icon"></i>
 	 		<% else %>
 	 			<%= link_to t('devise.views.sign_up'), new_user_registration_path, :class => "btn btn-default navbar-button" %>
 	 			<%= link_to t('devise.views.sign_in'), user_session_path, :class => "btn btn-default navbar-button" %>
