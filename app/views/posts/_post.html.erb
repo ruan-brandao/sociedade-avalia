@@ -3,7 +3,7 @@
 
 		<div class="post-author">
 			<%= image_tag post.user.profile_picture.url, class: "post-author-picture" %>
-			<%= post.user.email %>
+			<%= link_to post.user.full_name, "/#{post.user.username}" %>
 		</div>
 
 		<div class="btn-group post-options">
