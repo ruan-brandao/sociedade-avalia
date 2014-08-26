@@ -1,3 +1,15 @@
-<h1><%= @user.first_name %></h1>
+<h1><%= @user.full_name %></h1>
+
+<%= render 'stats' %>
+
+<% unless current_user == @user %>
+  <div id="follow_form">
+  <% if current_user.following?(@user) %>
+    <%= render 'unfollow' %>
+  <% else %>
+    <%= render 'follow' %>
+  <% end %>
+  </div>
+<% end %>
 
 <%= render @posts %>
