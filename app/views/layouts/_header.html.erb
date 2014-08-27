@@ -30,7 +30,7 @@
 				</div>
 	 		</form>
 
-			<i class="fa fa-check-square fa-3x home-icon"></i>
+			<%= link_to(fa_icon("check-square 3x", class: "home-icon"), '/', class: "home-link")  %>
 
 	 		<% if user_signed_in? %>
 	 			<i class="fa fa-home fa-2x navbar-icon"></i>
