@@ -66,11 +66,11 @@ class PostsController < ApplicationController
   end
 
   def like
-    @post.like += 1
+    @post.likes += 1
   end
 
   def dislike
-    @post.dislike += 1
+    @post.dislikes += 1
   end
 
   private

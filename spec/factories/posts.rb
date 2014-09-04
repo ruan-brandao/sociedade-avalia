@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :post do
     content "MyText"
-    likes 1
-    dislikes 1
+    likes 0
+    dislikes 0
   end
 end
