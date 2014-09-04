@@ -1,12 +1,7 @@
-require 'rails_helper'
+require 'spec_helper'
 
 RSpec.describe ProfilesController, :type => :controller do
 
-  describe "GET show" do
-    it "returns http success" do
-      get :show
-      expect(response).to be_success
-    end
-  end
+  pending
 
 end
