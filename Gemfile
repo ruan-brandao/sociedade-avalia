@@ -34,9 +34,15 @@ gem "paperclip", "~> 4.1"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
-  gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers'
+  gem 'capybara'
+end
+
+group :test do
+	gem 'shoulda-matchers'
+	gem 'cucumber-rails', require: false
+	gem 'database_cleaner'
+	gem 'selenium-webdriver'
 end
 
 group :doc do
