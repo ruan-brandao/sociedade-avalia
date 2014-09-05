@@ -5,8 +5,12 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts
-  has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+
+  has_many :relationships, 
+            foreign_key: "follower_id", 
+            dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
+
   has_many :reverse_relationships, 
            foreign_key: "followed_id", 
            class_name: "Relationship",
@@ -16,10 +20,14 @@ class User < ActiveRecord::Base
 
   has_attached_file :profile_picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :profile_picture, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_size :profile_picture, less_than: 1.megabytes
 
   validates :first_name, :last_name, :birth_date, :gender, :username, presence: true
   validates :username, uniqueness: true
   validates :gender, inclusion: { in: %w(male female other) }
+  validates :state, inclusion: { in: %w(AC AL AP AM BA CE DF ES GO 
+                                        MA MT MS MG PA PB PR PE PI
+                                        RJ RN RS RO RR SC SP SE TO) }, allow_nil:true
 
   def full_name
   	"#{self.first_name} #{self.last_name}"
