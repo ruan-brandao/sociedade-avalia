@@ -34,6 +34,7 @@ gem "paperclip", "~> 4.1"
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'rspec-its'
   gem 'factory_girl_rails'
   gem 'capybara'
 end

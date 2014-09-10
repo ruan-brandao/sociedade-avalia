@@ -1,15 +1,52 @@
 require 'spec_helper'
 
-DatabaseCleaner.strategy = :truncation
-
 describe User do
-	user = FactoryGirl.build(:user)
+	let(:user) { FactoryGirl.create(:user) }
 
   it { should have_many(:posts) }
   it { should have_many(:followers) }
   it { should have_many(:followed_users) }
 
   it { should respond_to(:full_name) }
+  it { should respond_to(:feed) }
+  it { should respond_to(:relationships) }
+  it { should respond_to(:reverse_relationships) }
+  it { should respond_to(:following?) }
+  it { should respond_to(:follow!) }
+
+  describe "following" do
+    let(:other_user) { FactoryGirl.create(:user, username: 'other') }
+    before do
+      user.save
+      user.follow!(other_user)
+    end
+
+    it 'is following other user after follow'do
+      expect(user).to be_following(other_user)
+    end
+
+    it 'has other user included in its followed_users' do
+      expect(user.followed_users).to include(other_user)
+    end
+
+    describe "followed user" do
+      it 'has user included in its followers' do
+        expect(other_user.followers).to include(user)
+      end
+    end
+
+    describe "and unfollowing" do
+      before { user.unfollow!(other_user) }
+
+      it 'is not following other user after unfollow' do
+        expect(user).to_not be_following(other_user)
+      end
+
+      it 'does not have other user included in its followed_users' do
+        expect(user.followed_users).to_not include(other_user)
+      end
+    end
+  end
 
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
