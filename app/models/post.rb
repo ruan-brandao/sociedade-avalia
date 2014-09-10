@@ -1,6 +1,8 @@
 class Post < ActiveRecord::Base
 	belongs_to :user
 
+	default_scope -> { order('created_at DESC') }
+
 	validates :content, presence: true
 	validates :likes, numericality: { greater_than_or_equal_to: 0 }
 	validates :dislikes, numericality: { greater_than_or_equal_to: 0 }
