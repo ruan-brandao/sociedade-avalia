@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
-	def index
+	def welcome
 		@posts = current_user.feed if user_signed_in?
 	end
 
-	def about_us
+	def about
 	end
 
 	def terms_of_use

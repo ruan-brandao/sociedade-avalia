@@ -1,8 +1,8 @@
 SociedadeAvalia::Application.routes.draw do
+  root 'pages#welcome'
+
   get 'users/following'
-
   get 'users/followers'
-
   get 'profiles/show'
 
   resources :posts
@@ -11,13 +11,11 @@ SociedadeAvalia::Application.routes.draw do
 
   devise_for :users, :controllers => { registrations: 'registrations' }
 
-  root 'pages#index'
-
   scope '/mockups', :constraints => lambda { |e| Rails.env.development? } do
     get '/:action', :controller => 'mockups', :actions => /[^\/]+/
   end
 
-  get 'sobre_nos' => 'pages#about_us'
+  get 'sobre' => 'pages#about'
   get 'termos' => 'pages#terms_of_use'
 
   get '/:id', to: 'profiles#show'
