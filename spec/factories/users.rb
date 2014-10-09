@@ -9,5 +9,6 @@ FactoryGirl.define do
   	gender "male"
   	email { "#{username.downcase}@example.com" }
   	password "Senha123"
+  	elector false
   end
 end

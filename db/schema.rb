@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915222259) do
+ActiveRecord::Schema.define(version: 20141009013952) do
 
   create_table "comments", force: true do |t|
     t.string   "text"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20140915222259) do
     t.string   "profile_picture_content_type"
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
+    t.boolean  "politician"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

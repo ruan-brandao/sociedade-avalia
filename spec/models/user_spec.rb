@@ -13,6 +13,7 @@ describe User do
   it { should respond_to(:reverse_relationships) }
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
+  it { should respond_to(:politician?) }
 
   describe "following" do
     let(:other_user) { FactoryGirl.create(:user, username: 'other') }
