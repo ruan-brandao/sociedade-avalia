@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
+  belongs_to :political_party
+
   has_many :relationships, 
             foreign_key: "follower_id", 
             dependent: :destroy

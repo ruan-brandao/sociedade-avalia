@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141009013952) do
+ActiveRecord::Schema.define(version: 20141009023356) do
 
   create_table "comments", force: true do |t|
     t.string   "text"
@@ -19,6 +19,15 @@ ActiveRecord::Schema.define(version: 20141009013952) do
     t.decimal  "dislikes"
     t.decimal  "user_id"
     t.decimal  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "political_parties", force: true do |t|
+    t.string   "name"
+    t.string   "siglum"
+    t.decimal  "number"
+    t.string   "position"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -68,6 +77,7 @@ ActiveRecord::Schema.define(version: 20141009013952) do
     t.integer  "profile_picture_file_size"
     t.datetime "profile_picture_updated_at"
     t.boolean  "politician"
+    t.integer  "political_party_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
