@@ -61,6 +61,7 @@ describe User do
                                         								RJ RN RS RO RR SC SP SE TO)) }
   it { should_not validate_presence_of(:state) }
   it { should_not validate_presence_of(:city) }
+  it { should_not validate_presence_of(:political_party_id) }
 
   it { should have_attached_file(:profile_picture) }
   it { should validate_attachment_content_type(:profile_picture).
