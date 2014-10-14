@@ -1,4 +1,5 @@
 SociedadeAvalia::Application.routes.draw do
+
   root 'pages#welcome'
 
   get 'users/following'
@@ -6,6 +7,7 @@ SociedadeAvalia::Application.routes.draw do
   get 'profiles/show'
 
   resources :posts
+  resources :political_parties
 
   resources :relationships, only: [:create, :destroy]
 
