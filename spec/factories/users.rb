@@ -10,5 +10,6 @@ FactoryGirl.define do
   	email { "#{username.downcase}@example.com" }
   	password "Senha123"
   	politician false
+  	admin false
   end
 end

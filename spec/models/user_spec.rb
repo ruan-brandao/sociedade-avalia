@@ -14,6 +14,7 @@ describe User do
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
   it { should respond_to(:politician?) }
+  it { should respond_to(:admin?) }
 
   describe "following" do
     let(:other_user) { FactoryGirl.create(:user, username: 'other') }
