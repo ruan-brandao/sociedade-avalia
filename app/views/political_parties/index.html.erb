@@ -1,1 +1,7 @@
-<h1>Listando os partido</h1>
+<h1>Listando os partidos</h1>
+
+<% if current_user.try(:admin?) %>
+	<%= link_to 'Criar Partido', new_political_party_path %>
+<% end %>
+
+<%= render @political_parties %>

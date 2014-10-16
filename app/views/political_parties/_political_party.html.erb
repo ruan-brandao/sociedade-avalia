@@ -1,0 +1,26 @@
+<p>
+  <strong>name:</strong>
+  <%= political_party.name %>
+</p>
+
+<p>
+  <strong>siglum:</strong>
+  <%= political_party.siglum %>
+</p>
+
+<p>
+  <strong>number:</strong>
+  <%= political_party.number.to_i %>
+</p>
+
+<p>
+  <strong>position:</strong>
+  <%= political_party.position %>
+</p>
+<br>
+
+<% if current_user.try(:admin?) %>
+	<%= link_to 'Editar Partido', edit_political_party_path(political_party) %>
+	<%= link_to 'Destroy', political_party, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+<br><br>
