@@ -18,4 +18,11 @@ class ProfilesController < ApplicationController
   	redirect_to "/#{@user.username}"
   end
 
+  def turn_to_elector
+  	@user = User.find(params[:id])
+  	@user.politician = false
+  	@user.save
+  	redirect_to "/#{@user.username}"
+  end
+
 end

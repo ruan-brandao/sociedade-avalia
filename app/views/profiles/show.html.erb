@@ -15,7 +15,11 @@
 <% end %>
 
 <% if current_user.try(:admin?) %>
-	<%= link_to 'Turn user to Politician', "users/#{@user.id}/turn_to_politician" %>
+	<% if @user.politician? %>
+		<%= link_to 'Turn user to elector', "users/#{@user.id}/turn_to_elector" %>
+	<% else %>
+		<%= link_to 'Turn user to Politician', "users/#{@user.id}/turn_to_politician" %>
+	<% end %>
 <% end %>
 
 <%= render @posts %>
