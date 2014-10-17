@@ -45,13 +45,6 @@ class PoliticalPartiesController < ApplicationController
 		params.require(:political_party).permit(:name, :siglum, :number, :position)
 	end
 
-	def require_admin
-		unless current_user.try(:admin?)
-			flash[:error] = "Permissão Negada"
-			redirect_to '/'
-		end
-	end
-
 	def set_political_party
 		@political_party = PoliticalParty.find(params[:id])
 	end

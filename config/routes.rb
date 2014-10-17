@@ -5,6 +5,7 @@ SociedadeAvalia::Application.routes.draw do
   get 'users/following'
   get 'users/followers'
   get 'profiles/show'
+  get "users/:id/turn_to_politician", to: "profiles#turn_to_politician"
 
   resources :posts
   resources :political_parties

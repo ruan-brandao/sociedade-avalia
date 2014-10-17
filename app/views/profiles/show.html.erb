@@ -2,6 +2,8 @@
 
 <%= render 'stats' %>
 
+<%= @user.politician %>
+
 <% if user_signed_in? && current_user != @user %>
   <div id="follow_form">
   <% if current_user.following?(@user) %>
@@ -10,6 +12,10 @@
     <%= render 'follow' %>
   <% end %>
   </div>
+<% end %>
+
+<% if current_user.try(:admin?) %>
+	<%= link_to 'Turn user to Politician', "users/#{@user.id}/turn_to_politician" %>
 <% end %>
 
 <%= render @posts %>
