@@ -14,6 +14,11 @@ SociedadeAvalia::Application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
   devise_for :users, controllers: { registrations: 'registrations' }
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
+  end
 
   scope '/mockups', :constraints => lambda { |e| Rails.env.development? } do
     get '/:action', :controller => 'mockups', :actions => /[^\/]+/
