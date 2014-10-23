@@ -13,7 +13,7 @@ SociedadeAvalia::Application.routes.draw do
 
   resources :relationships, only: [:create, :destroy]
 
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'registrations' }
 
   scope '/mockups', :constraints => lambda { |e| Rails.env.development? } do
     get '/:action', :controller => 'mockups', :actions => /[^\/]+/

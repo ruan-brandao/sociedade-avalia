@@ -12,6 +12,9 @@
   						<%= link_to current_user.full_name, "/#{current_user.username}" %>
   					</li>
   					<li role="presentation">
+  						<%= link_to 'Editar Perfil', edit_user_registration_path(current_user) %>
+  					</li>
+  					<li role="presentation">
   						<%= link_to t('devise.views.sign_out'), destroy_user_session_path, :method => :delete %>
   					</li>
   					<li role="presentation" class="divider"></li>
