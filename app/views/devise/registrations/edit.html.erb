@@ -10,6 +10,39 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
+   <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username %>
+  </div> 
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.select :state, brazilian_states %>
+  </div>
+
+  <% if current_user.politician? %>
+  <% resource.political_party ||= PoliticalParty.new %>
+    <div class="field">
+      <%= f.label :political_party_id %><br />
+      <%= f.select :political_party_id, parties %>
+    </div>
+  <% end %>
+
   <div><%= f.submit "Update" %></div>
 <% end %>
 
