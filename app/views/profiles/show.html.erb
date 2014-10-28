@@ -2,8 +2,9 @@
 
 <%= render 'stats' %>
 
-<%= @user.politician %>
-<%= @user.political_party.siglum if @user.political_party %>
+<% if  @user.politician? %>
+  <%= @user.political_party.siglum %>
+<% end %>
 
 <% if user_signed_in? && current_user != @user %>
   <div id="follow_form">
