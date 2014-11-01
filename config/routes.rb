@@ -1,5 +1,9 @@
 SociedadeAvalia::Application.routes.draw do
 
+  get 'post_likes/like'
+
+  get 'post_likes/dislike'
+
   root 'pages#welcome'
 
   get 'users/following'
