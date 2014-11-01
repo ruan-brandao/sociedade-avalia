@@ -27,12 +27,12 @@
 	  <div class="post-footer">
 			<span class="like">
 				<i class="fa fa-thumbs-o-up fa-lg thumb-icon"></i>
-				<%= link_to 'Like', post_likes_like_path(post.id) %>
+				<%= link_to 'Like', post_likes_like_path(post) %>
 				<%= post.post_likes.select(:value).count %>
 			</span>
 		  <span class="dislike">
 		  	<i class="fa fa-thumbs-o-down fa-lg thumb-icon"></i>
-		  	<%= link_to 'Dislike', post_likes_dislike_path(post.id) %>
+		  	<%= link_to 'Dislike', post_likes_dislike_path(post) %>
 				<%= post.post_likes.count - post.post_likes.select(:value).count %>
 		  </span>
 		</div>

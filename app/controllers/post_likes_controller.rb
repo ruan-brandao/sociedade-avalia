@@ -3,23 +3,19 @@ class PostLikesController < ApplicationController
 
   def like
   	@post_like.value = true
-  	flash[:alert] = "Fail" unless @post_like.save
+  	@post_like.save
   end
 
   def dislike
   	@post_like.value = false
-    flash[:alert] = "Fail" unless @post_like.save
+    @post_like.save
   end
 
   private
 
-  def post_like_params
-		params.require(:post_like).permit(:user_id, :post_id, :value)
-	end
-
   def set_post_like
-  	@post_like = PostLike.new #(post_like_params)
+  	@post_like = PostLike.new
   	@post_like.user_id = current_user.id
-  	@post_like.post_id = Post.find_by(params[:id]).id
+  	@post_like.post_id = Post.find_by(params[:id])
 	end
 end
