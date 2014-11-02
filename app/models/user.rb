@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
-  def has_liked?(post)
+  def has_liked_post?(post)
     return false if PostLike.where(user_id: self.id, post_id: post).empty?
     true
   end

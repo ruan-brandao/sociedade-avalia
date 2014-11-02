@@ -3,12 +3,12 @@ class PostLikesController < ApplicationController
 
   def like
   	@post_like.value = true
-  	@post_like.save unless current_user.has_liked?(Post.where(id: @post_like.post_id).last.id)
+  	@post_like.save unless current_user.has_liked_post?(Post.where(id: @post_like.post_id).last.id)
   end
 
   def dislike
   	@post_like.value = false
-    @post_like.save unless current_user.has_liked?(Post.where(id: @post_like.post_id).last.id)
+    @post_like.save unless current_user.has_liked_post?(Post.where(id: @post_like.post_id).last.id)
   end
 
   private
