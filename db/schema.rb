@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101235545) do
-
-  create_table "comments", force: true do |t|
-    t.string   "text"
-    t.decimal  "likes"
-    t.decimal  "dislikes"
-    t.decimal  "user_id"
-    t.decimal  "post_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20141102015351) do
 
   create_table "political_parties", force: true do |t|
     t.string   "name"
