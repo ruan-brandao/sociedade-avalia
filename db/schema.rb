@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029002756) do
+ActiveRecord::Schema.define(version: 20141101235545) do
 
   create_table "comments", force: true do |t|
     t.string   "text"
@@ -28,6 +28,14 @@ ActiveRecord::Schema.define(version: 20141029002756) do
     t.string   "siglum"
     t.decimal  "number"
     t.string   "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "political_party_likes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "political_party_id"
+    t.boolean  "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

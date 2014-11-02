@@ -2,6 +2,7 @@ require 'spec_helper'
 
 RSpec.describe PoliticalParty, :type => :model do
   it { should have_many(:users) }
+  it { should have_many(:political_party_likes) }
 
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:siglum) }

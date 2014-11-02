@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
   has_many :post_likes
+  has_many :political_party_likes
 
   belongs_to :political_party
 

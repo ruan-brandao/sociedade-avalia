@@ -7,6 +7,7 @@ describe User do
   it { should have_many(:followers) }
   it { should have_many(:followed_users) }
   it { should have_many(:post_likes) }
+  it { should have_many(:political_party_likes) }
 
   it { should respond_to(:full_name) }
   it { should respond_to(:feed) }

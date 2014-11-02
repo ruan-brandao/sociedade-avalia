@@ -1,5 +1,6 @@
 class PoliticalParty < ActiveRecord::Base
 	has_many :users
+	has_many :political_party_likes
 
 	validates :name, :siglum, :number, :position, presence: true
 	validates :siglum, length: { maximum: 10 }
