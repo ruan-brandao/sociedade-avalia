@@ -1,5 +1,9 @@
 SociedadeAvalia::Application.routes.draw do
 
+  get 'political_party_likes/like'
+
+  get 'political_party_likes/dislike'
+
   get 'post_likes/like'
 
   get 'post_likes/dislike'

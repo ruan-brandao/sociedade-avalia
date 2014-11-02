@@ -49,12 +49,17 @@ class User < ActiveRecord::Base
     relationships.find_by(followed_id: other_user.id).destroy
   end
 
+  def feed
+    Post.from_users_followed_by(self)
+  end
+
   def has_liked_post?(post)
     return false if PostLike.where(user_id: self.id, post_id: post).empty?
     true
   end
 
-  def feed
-    Post.from_users_followed_by(self)
+  def has_liked_political_party?(political_party)
+    return false if PoliticalPartyLike.where(user_id: self.id, political_party_id: political_party).empty?
+    true
   end
 end

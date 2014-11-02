@@ -19,6 +19,16 @@
 </p>
 <br>
 
+<p>
+  <%= link_to 'Like', political_party_likes_like_path(political_party_id: political_party.id) %>
+  <%= PoliticalPartyLike.where(political_party_id: political_party.id, value:true).count %>
+</p>
+<br>
+<p>
+  <%= link_to 'Dislike', political_party_likes_dislike_path(political_party_id: political_party.id) %>
+  <%= political_party.political_party_likes.count -  PoliticalPartyLike.where(political_party_id: political_party.id, value:true).count %>
+</p>
+
 <% if current_user.try(:admin?) %>
 	<%= link_to 'Editar Partido', edit_political_party_path(political_party) %>
 	<%= link_to 'Destroy', political_party, method: :delete, data: { confirm: 'Are you sure?' } %>
