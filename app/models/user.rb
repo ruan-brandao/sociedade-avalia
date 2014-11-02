@@ -50,7 +50,8 @@ class User < ActiveRecord::Base
   end
 
   def has_liked?(post)
-    PostLike.where(user_id: self.id)
+    return false if PostLike.where(user_id: self.id, post_id: post).empty?
+    true
   end
 
   def feed
