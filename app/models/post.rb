@@ -5,8 +5,6 @@ class Post < ActiveRecord::Base
 	default_scope -> { order('created_at DESC') }
 
 	validates :content, presence: true
-	validates :likes, numericality: { greater_than_or_equal_to: 0 }
-	validates :dislikes, numericality: { greater_than_or_equal_to: 0 }
 
 	def self.from_users_followed_by(user)
     followed_user_ids = "SELECT followed_id FROM relationships

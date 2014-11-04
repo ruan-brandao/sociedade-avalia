@@ -27,8 +27,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user = current_user
-    @post.likes = 0
-    @post.dislikes = 0
 
     respond_to do |format|
       if @post.save
@@ -65,14 +63,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def like
-    @post.likes += 1
-  end
-
-  def dislike
-    @post.dislikes += 1
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -81,6 +71,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:content, :likes, :dislikes)
+      params.require(:post).permit(:content)
     end
 end
