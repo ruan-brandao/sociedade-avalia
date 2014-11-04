@@ -12,4 +12,12 @@ class Post < ActiveRecord::Base
     where("user_id IN (#{followed_user_ids}) OR user_id = :user_id",
           user_id: user.id)
   end
+
+  def likes
+  	self.post_likes.select(:value).count
+  end
+
+  def dislikes
+  	self.post_likes.count - self.post_likes.select(:value).count
+  end
 end
