@@ -11,6 +11,6 @@ class PoliticalParty < ActiveRecord::Base
 	end
 
 	def dislikes
-		self.political_party_likes.count -  PoliticalPartyLike.where(political_party_id: self.id, value:true).count
+		self.political_party_likes.count -  self.likes
 	end
 end
