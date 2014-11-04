@@ -18,6 +18,6 @@ class Post < ActiveRecord::Base
   end
 
   def dislikes
-  	self.post_likes.count - self.post_likes.select(:value).count
+  	self.post_likes.count - self.likes
   end
 end
