@@ -21,12 +21,12 @@
 
 <p>
   <%= link_to 'Like', political_party_likes_like_path(political_party_id: political_party.id) %>
-  <%= PoliticalPartyLike.where(political_party_id: political_party.id, value:true).count %>
+  <%= political_party.likes %>
 </p>
 <br>
 <p>
   <%= link_to 'Dislike', political_party_likes_dislike_path(political_party_id: political_party.id) %>
-  <%= political_party.political_party_likes.count -  PoliticalPartyLike.where(political_party_id: political_party.id, value:true).count %>
+  <%= political_party.dislikes %>
 </p>
 
 <% if current_user.try(:admin?) %>
