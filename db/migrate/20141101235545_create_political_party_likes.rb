@@ -7,5 +7,6 @@ class CreatePoliticalPartyLikes < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :political_party_likes, [:user_id, :political_party_id], unique: true
   end
 end
