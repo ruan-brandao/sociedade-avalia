@@ -7,12 +7,12 @@ describe User do
   it { should have_many(:followers) }
   it { should have_many(:followed_users) }
   it { should have_many(:post_likes) }
+  it { should have_many(:relationships) }
+  it { should have_many(:reverse_relationships) }
   it { should have_many(:political_party_likes) }
 
   it { should respond_to(:full_name) }
   it { should respond_to(:feed) }
-  it { should respond_to(:relationships) }
-  it { should respond_to(:reverse_relationships) }
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
   it { should respond_to(:politician?) }

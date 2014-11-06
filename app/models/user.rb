@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   belongs_to :political_party
 
+  #Relationships associations (following) 
   has_many :relationships, 
             foreign_key: "follower_id", 
             dependent: :destroy
@@ -21,7 +22,19 @@ class User < ActiveRecord::Base
            dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
 
+  #PoliticianLikes associations
+  has_many :politician_likes,
+            foreign_key: "liker_id",
+            dependent: :destroy
+  has_many :likes_given, through: :politician_likes, source: :liked
 
+  has_many :politician_likes_received,
+            foreign_key: "liked_id",
+            class_name: "PoliticianLikes",
+            dependent: :destroy
+  has_many :likes_received, through: :false_politician_likes, source: :liker
+
+  #Paperclip Image validations
   has_attached_file :profile_picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :profile_picture, :content_type => /\Aimage\/.*\Z/
   validates_attachment_size :profile_picture, less_than: 1.megabytes
