@@ -32,6 +32,8 @@ gem 'devise'
 
 gem "paperclip", "~> 4.1"
 
+gem 'railroady'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-its'
