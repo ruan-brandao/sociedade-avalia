@@ -1,5 +1,7 @@
 <h1><%= @user.full_name %></h1>
 
+<%= image_tag @user.profile_picture.url, class: "post-author-picture" %>
+
 <%= render 'stats' %>
 
 <% if  @user.politician? %>

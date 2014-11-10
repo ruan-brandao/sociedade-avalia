@@ -35,7 +35,10 @@ class User < ActiveRecord::Base
   has_many :likes_received, through: :false_politician_likes, source: :liker
 
   #Paperclip Image validations
-  has_attached_file :profile_picture, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :profile_picture, 
+                    :styles => { :medium => "300x300>", 
+                    :thumb => "100x100>" }, 
+                    :default_url => "/assets/:style/missing.png"
   validates_attachment_content_type :profile_picture, :content_type => /\Aimage\/.*\Z/
   validates_attachment_size :profile_picture, less_than: 1.megabytes
 
