@@ -1,0 +1,2 @@
+module PoliticianLikesHelper
+end
