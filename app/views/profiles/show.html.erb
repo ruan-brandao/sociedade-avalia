@@ -3,7 +3,11 @@
 <%= render 'stats' %>
 
 <% if  @user.politician? %>
-  <%= @user.political_party.siglum %>
+  <%= @user.political_party.siglum %><br>
+  <%= link_to 'Like', politician_likes_like_path(politician_id: @user.id) %>
+  <%= @user.likes %><br>
+  <%= link_to 'Dislike', politician_likes_dislike_path(politician_id: @user.id) %>
+  <%= @user.dislikes %><br>
 <% end %>
 
 <% if user_signed_in? && current_user != @user %>

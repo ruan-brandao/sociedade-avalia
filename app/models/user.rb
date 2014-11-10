@@ -75,4 +75,17 @@ class User < ActiveRecord::Base
     return false if PoliticalPartyLike.where(user_id: self.id, political_party_id: political_party).empty?
     true
   end
+
+  def has_liked_politician?(politician)
+    return false if PoliticianLike.where(liker_id: self.id, liked_id: politician).empty?
+    true
+  end
+
+  def likes
+    PoliticianLike.where(liked_id: self.id, value: true).count
+  end
+
+  def dislikes
+    PoliticianLike.where(liked_id: self.id, value: false).count
+  end
 end
