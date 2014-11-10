@@ -1,33 +1,34 @@
-<h1><%= @user.full_name %></h1>
+<div class="profile">
+  <%= image_tag @user.profile_picture.url, class: "profile-picture" %>
+  <h2 class="profile-name"><%= @user.full_name %> - <%= @user.username %></h2>
 
-<%= image_tag @user.profile_picture.url, class: "post-author-picture" %>
-
-<%= render 'stats' %>
-
-<% if  @user.politician? %>
-  <%= @user.political_party.siglum %><br>
-  <%= link_to 'Like', politician_likes_like_path(politician_id: @user.id) %>
-  <%= @user.likes %><br>
-  <%= link_to 'Dislike', politician_likes_dislike_path(politician_id: @user.id) %>
-  <%= @user.dislikes %><br>
-<% end %>
-
-<% if user_signed_in? && current_user != @user %>
-  <div id="follow_form">
-  <% if current_user.following?(@user) %>
-    <%= render 'unfollow' %>
-  <% else %>
-    <%= render 'follow' %>
+  <% if user_signed_in? && current_user != @user %>
+    <div id="follow_form">
+      <% if current_user.following?(@user) %>
+        <%= render 'unfollow' %>
+      <% else %>
+        <%= render 'follow' %>
+      <% end %>
+    </div>
   <% end %>
-  </div>
-<% end %>
 
-<% if current_user.try(:admin?) %>
-	<% if @user.politician? %>
-		<%= link_to 'Turn user to elector', "users/#{@user.id}/turn_to_elector" %>
-	<% else %>
-		<%= link_to 'Turn user to Politician', "users/#{@user.id}/turn_to_politician" %>
-	<% end %>
-<% end %>
+  <%= render 'stats' %>
+
+  <% if  @user.politician? %>
+    <%= @user.political_party.siglum %><br>
+    <%= link_to 'Like', politician_likes_like_path(politician_id: @user.id) %>
+    <%= @user.likes %><br>
+    <%= link_to 'Dislike', politician_likes_dislike_path(politician_id: @user.id) %>
+    <%= @user.dislikes %><br>
+  <% end %>
+
+  <% if current_user.try(:admin?) %>
+  	<% if @user.politician? %>
+  		<%= link_to 'Turn user to elector', "users/#{@user.id}/turn_to_elector" %>
+  	<% else %>
+  		<%= link_to 'Turn user to Politician', "users/#{@user.id}/turn_to_politician" %>
+  	<% end %>
+  <% end %>
+</div>
 
 <%= render @posts %>

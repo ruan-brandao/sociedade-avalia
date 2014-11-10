@@ -1,14 +1,18 @@
-<div class="stats">
-  <a href="/<%= @user.username %>/following">
-    <strong id="following" class="stat">
-      <%= @user.followed_users.count %>
-    </strong>
-    following
-  </a>
-  <a href="/<%= @user.username %>/followers">
-    <strong id="followers" class="stat">
-      <%= @user.followers.count %>
-    </strong>
-    followers
-  </a>
+<div class="stats btn-group">
+  <button type="button" class="btn btn-default">
+    <a href="/<%= @user.username %>/following">
+      <strong id="following" class="stat">
+        <%= @user.followed_users.count %>
+      </strong>
+      Seguindo
+    </a>
+  </button>
+  <button type="button" class="btn btn-default">
+    <a href="/<%= @user.username %>/followers">
+      <strong id="followers" class="stat">
+        <%= @user.followers.count %>
+      </strong>
+      Seguidores
+    </a>
+  </button>
 </div>

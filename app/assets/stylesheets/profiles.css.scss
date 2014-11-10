@@ -1,3 +1,35 @@
-// Place all the styles related to the profiles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.profile {
+	width: 100%;
+	height: auto;
+	margin: 1em 0;
+	border-radius: 10px;
+	background-color: #e57d1d;
+	padding-bottom: .6em;
+}
+
+.profile-picture {
+	height: 4em;
+	width: auto;
+	max-width: 6em;
+	position: relative;
+	left: .6em;
+	top: .6em;
+	border: 2px solid #256929;
+	border-radius: 5px;
+}
+
+.profile-name {
+	position: relative;
+	margin-left: 2em;
+	margin-top: -1.5em;
+}
+
+.follow-button {
+	margin-left: .6em;
+	margin-top: 1.7em;
+}
+
+.stats {
+	margin-top: 1em;
+	margin-left: .6em;
+}
