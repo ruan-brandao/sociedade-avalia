@@ -6,6 +6,11 @@ class PoliticalParty < ActiveRecord::Base
 	validates :siglum, length: { maximum: 10 }
 	validates :number, numericality: { only_integer: true, greater_than: 0, less_than: 100 }
 
+	has_attached_file :picture, :styles => { :medium => "300x300>", 
+															:thumb => "100x100>" }, 
+															:default_url => "/images/:style/missing-party-picture.png"
+  validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+
 	def likes
 		PoliticalPartyLike.where(political_party_id: self.id, value:true).count
 	end

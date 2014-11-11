@@ -42,7 +42,7 @@ class PoliticalPartiesController < ApplicationController
 	private
 
 	def political_party_params
-		params.require(:political_party).permit(:name, :siglum, :number, :position)
+		params.require(:political_party).permit(:name, :siglum, :number, :position, :picture)
 	end
 
 	def set_political_party
