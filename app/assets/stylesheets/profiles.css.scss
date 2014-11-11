@@ -1,5 +1,6 @@
 .profile {
-	width: 100%;
+	width: auto;
+	max-width: 100%;
 	height: auto;
 	margin: 1em 0;
 	border-radius: 10px;
@@ -20,16 +21,43 @@
 
 .profile-name {
 	position: relative;
-	margin-left: 2em;
+	margin-left: 2.9em;
 	margin-top: -1.5em;
 }
 
 .follow-button {
 	margin-left: .6em;
-	margin-top: 1.7em;
 }
 
 .stats {
 	margin-top: 1em;
 	margin-left: .6em;
+}
+
+.profile-icon {
+	color: #2FC2EF;
+}
+
+.politician-like-bar {
+	width: 95%;
+	margin: .5em auto;
+}
+
+.politician-like-button-group {
+	width: 90%;
+	margin: .5em;
+}
+
+.politician-like-button {
+	color: green;
+}
+
+.politician-dislike-button {
+	color: red;
+}
+
+.profile-political-party-name {
+	position: relative;
+	top: -0.9em;
+	left: 6.9em;
 }

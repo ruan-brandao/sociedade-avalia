@@ -1,6 +1,13 @@
 <div class="profile">
   <%= image_tag @user.profile_picture.url, class: "profile-picture" %>
-  <h2 class="profile-name"><%= @user.full_name %> - <%= @user.username %></h2>
+  <h2 class="profile-name">
+    <%= @user.full_name %> 
+    <%= fa_icon("check-circle", class: 'profile-icon') if @user.politician? %>
+  </h2>
+
+  <% if @user.politician? %>
+    <span class="profile-political-party-name"><%= @user.political_party.siglum %></span>
+  <% end %>
 
   <% if user_signed_in? && current_user != @user %>
     <div id="follow_form">
@@ -15,11 +22,24 @@
   <%= render 'stats' %>
 
   <% if  @user.politician? %>
-    <%= @user.political_party.siglum %><br>
-    <%= link_to 'Like', politician_likes_like_path(politician_id: @user.id) %>
-    <%= @user.likes %><br>
-    <%= link_to 'Dislike', politician_likes_dislike_path(politician_id: @user.id) %>
-    <%= @user.dislikes %><br>
+    <div class="progress politician-like-bar">
+      <div class="progress-bar progress-bar-success" style="width: <%= likes_percentage(@user) %>%">
+      </div>
+      <div class="progress-bar progress-bar-danger" style="width: <%= dislikes_percentage(@user) %>%">
+      </div>
+    </div>
+
+    <div class="btn-group politician-like-button-group">
+      <button type="button" class="btn btn-default politician-like-button">
+        <%= link_to fa_icon("thumbs-up"), politician_likes_like_path(politician_id: @user.id), class: 'like' %>
+        <%= @user.likes %><br>
+      </button>
+      <button type="button" class="btn btn-default politician-dislike-button">
+        <%= link_to fa_icon("thumbs-down"), politician_likes_dislike_path(politician_id: @user.id), class: 'dislike' %>
+        <%= @user.dislikes %>
+      </button>
+    </div>
+    
   <% end %>
 
   <% if current_user.try(:admin?) %>

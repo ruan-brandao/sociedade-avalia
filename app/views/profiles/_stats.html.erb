@@ -3,7 +3,7 @@
     <a href="/<%= @user.username %>/following">
       <strong id="following" class="stat">
         <%= @user.followed_users.count %>
-      </strong>
+      </strong><br>
       Seguindo
     </a>
   </button>
@@ -11,7 +11,7 @@
     <a href="/<%= @user.username %>/followers">
       <strong id="followers" class="stat">
         <%= @user.followers.count %>
-      </strong>
+      </strong><br>
       Seguidores
     </a>
   </button>

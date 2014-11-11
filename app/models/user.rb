@@ -84,6 +84,10 @@ class User < ActiveRecord::Base
     true
   end
 
+  def total_likes_and_dislikes
+    PoliticianLike.where(liked_id: self.id).count
+  end
+
   def likes
     PoliticianLike.where(liked_id: self.id, value: true).count
   end
