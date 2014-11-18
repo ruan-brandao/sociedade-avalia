@@ -40,7 +40,6 @@
 
 	 		<% if user_signed_in? %>
 	 			<i class="fa fa-home fa-2x navbar-icon"></i>
-	 			<i class="fa fa-paper-plane fa-2x navbar-icon"></i>
 	 			<i class="fa fa-bell fa-2x navbar-icon"></i>
 	 		<% else %>
 	 			<%= link_to t('devise.views.sign_up'), new_user_registration_path, :class => "btn btn-default navbar-button" %>
