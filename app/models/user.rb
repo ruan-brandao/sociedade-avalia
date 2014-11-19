@@ -95,4 +95,8 @@ class User < ActiveRecord::Base
   def dislikes
     PoliticianLike.where(liked_id: self.id, value: false).count
   end
+
+  def like_dislike_proportion
+    self.likes.to_f / self.dislikes.to_f
+  end
 end
