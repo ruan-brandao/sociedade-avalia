@@ -23,20 +23,27 @@
 }
 
 .post-content {
-	padding: 10px 5px;
+	padding: 10 5px;
+	margin: 10px;
 }
 
 .post-footer{
 	bottom: 0;
-	position: absolute;
-	margin-top: 10px;
+	position: relative;
+	margin: 0 auto;
 }
 
-.like {
+.like,
+.like a,
+.like a:hover,
+.like a:visited {
 	color: green;
 }
 
-.dislike {
+.dislike,
+.dislike a,
+.dislike a:hover,
+.dislike a:visited {
 	color: red;
 }
 

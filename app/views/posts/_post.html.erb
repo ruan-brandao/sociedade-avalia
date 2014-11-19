@@ -3,7 +3,7 @@
 
 		<div class="post-author">
 			<%= image_tag post.user.profile_picture.url, class: "post-author-picture" %>
-			<%= link_to post.user.full_name, "/#{post.user.username}" %><br>
+			<%= link_to post.user.full_name, "/#{post.user.username}" %><br />
 			<%= link_to time_ago_in_words(post.created_at), post %>
 		</div>
 
@@ -24,17 +24,15 @@
 		</div>
 	  
 
-	  <div class="post-footer">
-			<span class="like">
-				<i class="fa fa-thumbs-o-up fa-lg thumb-icon"></i>
-				<%= link_to 'Like', post_likes_like_path(post_id: post.id) %>
+	  <div class="post-footer btn-group">
+			<button type="button" class="like btn btn-default">
+				<%= link_to fa_icon("thumbs-up lg"), post_likes_like_path(post_id: post.id) %>
 				<%= post.likes %>
-			</span>
-		  <span class="dislike">
-		  	<i class="fa fa-thumbs-o-down fa-lg thumb-icon"></i>
-		  	<%= link_to 'Dislike', post_likes_dislike_path(post_id: post.id) %>
+			</button>
+		  <button type="button" class="dislike btn btn-default">
+		  	<%= link_to fa_icon("thumbs-down lg"), post_likes_dislike_path(post_id: post.id) %>
 				<%= post.dislikes %>
-		  </span>
+		  </button>
 		</div>
 
 	<% end %>
