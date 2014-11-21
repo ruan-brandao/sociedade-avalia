@@ -1,36 +1,25 @@
-<p>
-  <strong>name:</strong>
-  <%= political_party.name %>
-</p>
+<div class="row">
+  <%= div_for political_party, class: ".col-sm-8" do %>
+    <%= image_tag 'http://www.pt.org.br/wp-content/themes/pt/library/images/logo-site.png', class: "political-party-picture" %>
 
-<p>
-  <strong>siglum:</strong>
-  <%= political_party.siglum %>
-</p>
+    <div class="political-party-info">
+      <%#= image_tag political_party.picture.url, class: "political-party-picture" %>
+      <%= political_party.name %><br>
+      <%= political_party.siglum %> - <%= political_party.number.to_i %><br>
+      <%= political_party.position %>
+    </div>
 
-<p>
-  <strong>number:</strong>
-  <%= political_party.number.to_i %>
-</p>
+    <div class="political-party-like">
+      <%= link_to 'Like', political_party_likes_like_path(political_party_id: political_party.id) %>
+      <%= political_party.likes %>
+      
+      <%= link_to 'Dislike', political_party_likes_dislike_path(political_party_id: political_party.id) %>
+      <%= political_party.dislikes %>
+    </div>
 
-<p>
-  <strong>position:</strong>
-  <%= political_party.position %>
-</p>
-<br>
-
-<p>
-  <%= link_to 'Like', political_party_likes_like_path(political_party_id: political_party.id) %>
-  <%= political_party.likes %>
-</p>
-<br>
-<p>
-  <%= link_to 'Dislike', political_party_likes_dislike_path(political_party_id: political_party.id) %>
-  <%= political_party.dislikes %>
-</p>
-
-<% if current_user.try(:admin?) %>
-	<%= link_to 'Editar Partido', edit_political_party_path(political_party) %>
-	<%= link_to 'Destroy', political_party, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-<br><br>
+    <% if current_user.try(:admin?) %>
+      <%= link_to 'Editar Partido', edit_political_party_path(political_party) %>
+      <%= link_to 'Destroy', political_party, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  <% end %>
+</div>
