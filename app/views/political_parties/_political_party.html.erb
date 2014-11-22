@@ -9,12 +9,23 @@
       <%= political_party.position %>
     </div>
 
-    <div class="political-party-like">
-      <%= link_to 'Like', political_party_likes_like_path(political_party_id: political_party.id) %>
+    <div class="progress politician-like-bar">
+      <div class="progress-bar progress-bar-success" style="width: <%= likes_percentage(political_party) %>%">
+      </div>
+      <div class="progress-bar progress-bar-danger" style="width: <%= dislikes_percentage(political_party) %>%">
+      </div>
+    </div>
+
+    <div class="political-party-like btn-group">
+      <button type="button" class="btn btn-default like">
+      <%= link_to fa_icon("thumbs-up lg"), political_party_likes_like_path(political_party_id: political_party.id) %>
       <%= political_party.likes %>
+      </button>
       
-      <%= link_to 'Dislike', political_party_likes_dislike_path(political_party_id: political_party.id) %>
+      <button type="button" class="btn btn-default dislike">
+      <%= link_to fa_icon("thumbs-down lg"), political_party_likes_dislike_path(political_party_id: political_party.id) %>
       <%= political_party.dislikes %>
+      </button>
     </div>
 
     <% if current_user.try(:admin?) %>

@@ -18,4 +18,8 @@ class PoliticalParty < ActiveRecord::Base
 	def dislikes
 		self.political_party_likes.count -  self.likes
 	end
+
+	def total_likes_and_dislikes
+		self.political_party_likes.count
+	end
 end
