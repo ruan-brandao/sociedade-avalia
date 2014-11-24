@@ -24,6 +24,13 @@ pt-BR:
       timeout: 'Sua sessão expirou, por favor, efetue login novamente para continuar.'
       unauthenticated: 'Para continuar, efetue login ou registre-se.'
       unconfirmed: 'Antes de continuar, confirme a sua conta.'
+    password_reset:
+      forgot_password: 'Esqueceu sua senha?'
+      send_instructions: 'Enviar intruções para recuperar senha'
+      reset_request: 'Foi solicitado um link para alterar sua senha. Você pode fazer isso no link abaixo.'
+      change_password: 'Mudar Senha'
+      ignore: 'Se você não pediu isso, por favor ignore este email.'
+      wont_change: 'Sua senha não irá mudar até que você acesse o link acima e cria uma nova.'
     mailer:
       confirmation_instructions:
         subject: 'Instruções de confirmação'
