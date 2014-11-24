@@ -9,9 +9,11 @@ pt-BR:
       remember_me: 'Lembrar-me'
       forgot_password: 'Esqueceu sua senha?'
     confirmations:
-      confirmed: 'Sua conta foi confirmada com sucesso. Você está logado.'
+      confirmed: 'Sua conta foi confirmada com sucesso. Você já pode se logar.'
       send_instructions: 'Dentro de minutos, você receberá um e-mail com instruções para a confirmação da sua conta.'
       send_paranoid_instructions: 'Se o seu endereço de e-mail estiver cadastrado, você receberá uma mensagem com instruções para confirmação da sua conta.'
+      confirm_email_link: 'Você pode confirmar seu e-mail clicando no link abaixo:'
+      confirm_my_account: 'Cofirmar Minha Conta'
     failure:
       already_authenticated: 'Você já está logado.'
       inactive: 'Sua conta ainda não foi ativada.'

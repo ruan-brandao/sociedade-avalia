@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20141124180411) do
     t.datetime "updated_at"
   end
 
+  add_index "political_party_likes", ["user_id", "political_party_id"], name: "index_political_party_likes_on_user_id_and_political_party_id", unique: true
+
   create_table "politician_likes", force: true do |t|
     t.integer  "liker_id"
     t.integer  "liked_id"
@@ -53,6 +55,8 @@ ActiveRecord::Schema.define(version: 20141124180411) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "post_likes", ["user_id", "post_id"], name: "index_post_likes_on_user_id_and_post_id", unique: true
 
   create_table "posts", force: true do |t|
     t.text     "content"
@@ -99,8 +103,13 @@ ActiveRecord::Schema.define(version: 20141124180411) do
     t.boolean  "politician"
     t.integer  "political_party_id"
     t.boolean  "admin",                        default: false
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
   end
 
+  add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
