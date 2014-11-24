@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111015939) do
+ActiveRecord::Schema.define(version: 20141124180411) do
 
   create_table "political_parties", force: true do |t|
     t.string   "name"
