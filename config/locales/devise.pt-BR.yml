@@ -31,7 +31,7 @@ pt-BR:
       unconfirmed: 'Antes de continuar, confirme a sua conta.'
     password_reset:
       forgot_password: 'Esqueceu sua senha?'
-      send_instructions: 'Enviar instruções para recuperar senha'
+      send_instructions: 'Recuperar senha'
       reset_request: 'Foi solicitado um link para alterar sua senha. Você pode fazer isso no link abaixo.'
       change_password: 'Mudar Senha'
       ignore: 'Se você não pediu isso, por favor ignore este email.'
