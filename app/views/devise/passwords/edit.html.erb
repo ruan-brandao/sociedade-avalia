@@ -1,16 +1,26 @@
-<h2><%= t('devise.passwords.change') %></h2>
+<div class="form-page">
+	<h2><%= t('devise.passwords.change') %></h2>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+	<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+	  <%= devise_error_messages! %>
+	  <%= f.hidden_field :reset_password_token %>
 
-  <div><%= f.label :password, t('devise.passwords.new_password') %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
+	  <div>
+	  	<%= f.password_field :password, :autofocus => true, class: "form-control", 
+	  												placeholder: t('devise.passwords.new_password') %>
+	  </div>
 
-  <div><%= f.label :password_confirmation, t('devise.passwords.confirm_new_password') %><br />
-  <%= f.password_field :password_confirmation %></div>
+	  <div>
+	  	<%= f.password_field :password_confirmation, class: "form-control", 
+	  												placeholder: t('devise.passwords.confirm_new_password') %>
+	  </div>
 
-  <div><%= f.submit t('devise.passwords.change_button') %></div>
-<% end %>
+	  <br>
 
-<%= render "devise/shared/links" %>
+	  <div><%= f.submit t('devise.passwords.change_button'), class: "btn btn-lg btn-primary btn-block" %></div>
+	<% end %>
+
+	<div class="shared-links">
+		<%= render "devise/shared/links" %>
+	</div>
+</div>

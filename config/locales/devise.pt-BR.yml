@@ -7,7 +7,11 @@ pt-BR:
       sign_in: 'Entrar'
       sign_out: 'Sair'
       remember_me: 'Lembrar-me'
+    shared_links:
       forgot_password: 'Esqueceu sua senha?'
+      confirmation: 'Não recebeu email de confirmação?'
+      unlock: 'Não recebeu email para desbloquear sua conta?'
+      sign_in_with: 'Logar com '
     confirmations:
       confirmed: 'Sua conta foi confirmada com sucesso. Você já pode se logar.'
       send_instructions: 'Dentro de minutos, você receberá um e-mail com instruções para a confirmação da sua conta.'
@@ -26,7 +30,7 @@ pt-BR:
       unconfirmed: 'Antes de continuar, confirme a sua conta.'
     password_reset:
       forgot_password: 'Esqueceu sua senha?'
-      send_instructions: 'Enviar intruções para recuperar senha'
+      send_instructions: 'Enviar instruções para recuperar senha'
       reset_request: 'Foi solicitado um link para alterar sua senha. Você pode fazer isso no link abaixo.'
       change_password: 'Mudar Senha'
       ignore: 'Se você não pediu isso, por favor ignore este email.'
