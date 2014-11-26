@@ -67,9 +67,10 @@ SociedadeAvalia::Application.configure do
   config.action_mailer.default_url_options = {:host => 'sociedadeavalia.com.br'}
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address => "127.0.0.1",
+    :address => "smtp.mandrilapp.com",
     :port    => 25,
-    :domain  => 'yourdomain.com'
+    :enable_starttls_auto => true,
+    :domain  => 'sociedadeavalia.com.br'
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
