@@ -19,7 +19,7 @@
 		  </div>
 
 		  <div class="row">
-		  	<div class="form-group col-md-6">
+		  	<div class="form-group col-md-6 date-form">
 		  		<%= f.label :birth_date %><br />
 		  		<%= f.date_select :birth_date, end_year: 1900, start_year: Date.today.year - 10, include_blank: true, class: "form-control" %>
 		  	</div>
