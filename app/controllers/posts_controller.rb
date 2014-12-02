@@ -58,9 +58,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1.json
   def destroy
     @post.destroy
-    respond_to do |format|
-      format.js
-    end
+    redirect_to '/home'
   end
 
   private
