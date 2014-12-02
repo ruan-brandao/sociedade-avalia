@@ -9,21 +9,22 @@
   			<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
   				<% if user_signed_in? %>
   					<li role="presentation">
-  						<%= link_to current_user.full_name, "/#{current_user.username}" %>
+  						<%= link_to fa_icon('user', text: current_user.full_name), "/#{current_user.username}" %>
   					</li>
   					<li role="presentation">
-  						<%= link_to 'Editar Perfil', edit_user_registration_path(current_user) %>
+  						<%= link_to fa_icon('edit', text: 'Editar Perfil'), edit_user_registration_path(current_user) %>
   					</li>
   					<li role="presentation">
-  						<%= link_to 'Configurações', edit_user_path(current_user) %>
+  						<%= link_to fa_icon('cog', text: 'Configurações'), edit_user_path(current_user) %>
   					</li>
   					<li role="presentation">
-  						<%= link_to t('devise.views.sign_out'), destroy_user_session_path, :method => :delete %>
+  						<%= link_to fa_icon('power-off', text: t('devise.views.sign_out')), destroy_user_session_path, :method => :delete %>
   					</li>
   					<li role="presentation" class="divider"></li>
   				<% end %>
-			    <li role="presentation"><%= link_to 'Sobre', sobre_path %></li>
-			    <li role="presentation"><%= link_to 'Termos de Uso', termos_path %></li>
+  				<li role="presentation"><%= link_to fa_icon('flag', text: 'Partidos'), political_parties_path %></li>
+			    <li role="presentation"><%= link_to fa_icon('newspaper-o', text: 'Sobre'), sobre_path %></li>
+			    <li role="presentation"><%= link_to fa_icon('legal', text: 'Termos de Uso'), termos_path %></li>
 			  </ul>
 	 		</div>
 
