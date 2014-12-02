@@ -1,0 +1,10 @@
+<h1>Olá <%= current_user.full_name %></h1>
+
+<%= form_for(Post.new) do |f| %>
+	<div class="row">
+		<div class="col-md-9"><%= f.text_area :content, class: 'form-control post-input', rows: '3' %></div>
+		<div class="col-md-3"><%= f.submit 'Postar', class: 'btn btn-lg btn-primary btn-block' %></div>
+	</div>
+<% end %>
+
+<%= render @posts %>

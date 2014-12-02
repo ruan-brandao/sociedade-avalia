@@ -14,6 +14,11 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def home
+    redirect_to '/' unless user_signed_in?
+    @posts = current_user.feed if user_signed_in?
+  end
+
   def update_password
     @user = User.find(current_user.id)
     if @user.update_with_password(user_params)
