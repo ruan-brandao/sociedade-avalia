@@ -1,21 +1,30 @@
+<h1>Configurações</h1>
 <%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
   <div class="field">
-    <%= f.label :password, "Password" %><br />
-    <%= f.password_field :password, :autocomplete => "off"  %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password, :autocomplete => "off", class: 'form-control'  %>
   </div>
   <div class="field">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password %>
+    <%= f.label :current_password, "Senha Atual" %> <i>(precisamos da sua senha atual para confirmar as mudanças)</i><br />
+    <%= f.password_field :current_password, class: 'form-control' %>
   </div>
   <div class="action_container">
-    <%= f.submit %>
+    <%= f.submit 'Atualizar Perfil', class: "btn btn-lg btn-primary btn-block" %>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
+<h3>Cancelar conta</h3>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(current_user), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
+<p>Deseja cancelar sua conta?</p> 
+<%= link_to "Cancelar Conta", 
+    registration_path(current_user), 
+    data: { confirm: "Tem certeza que deseja cancelar sua conta?",
+            :'text' => 'Depois de excluída esta conta não poderá ser recuperada.',
+            :'confirm-button-text' => 'Apagar Conta',
+            :'cancel-button-text' => 'Voltar' }, 
+    :method => :delete,
+    class: "btn btn-lg btn-danger" %>
