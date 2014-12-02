@@ -1,1 +1,75 @@
-<%= link_to user.full_name, "/#{user.username}" %><br />
+<div class="profile">
+  <%= image_tag user.profile_picture.url, class: "profile-picture" %>
+  <h2 class="profile-name">
+    <%= user.full_name %> 
+    <%= fa_icon("check-circle", class: 'profile-icon') if user.politician? %>
+  </h2>
+
+  <% if user.politician? && user.political_party_id %>
+    <span class="profile-political-party-name"><%= user.political_party.siglum %></span>
+  <% end %>
+
+  <% if user_signed_in? && current_user != user %>
+    <div id="follow_form">
+      <% if current_user.following?(user) %>
+        <%= form_for(current_user.relationships.find_by(followed_id: user.id),
+				             html: { method: :delete }) do |f| %>
+				  <%= f.submit "Deixar de seguir", class: "btn btn-large  follow-button" %>
+				<% end %>
+      <% else %>
+        <%= form_for(current_user.relationships.build(followed_id: user.id)) do |f| %>
+			  <div><%= f.hidden_field :followed_id %></div>
+			  <%= f.submit "Seguir", class: "btn btn-large btn-primary follow-button" %>
+			<% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="stats btn-group">
+  <button type="button" class="btn btn-default">
+    <a href="/<%= user.username %>/following">
+      <strong id="following" class="stat">
+        <%= user.followed_users.count %>
+      </strong><br>
+      Seguindo
+    </a>
+  </button>
+  <button type="button" class="btn btn-default">
+    <a href="/<%= user.username %>/followers">
+      <strong id="followers" class="stat">
+        <%= user.followers.count %>
+      </strong><br>
+      Seguidores
+    </a>
+  </button>
+</div>
+
+  <% if  user.politician? %>
+    <div class="progress politician-like-bar">
+      <div class="progress-bar progress-bar-success" style="width: <%= likes_percentage(user) %>%">
+      </div>
+      <div class="progress-bar progress-bar-danger" style="width: <%= dislikes_percentage(user) %>%">
+      </div>
+    </div>
+
+    <div class="btn-group politician-like-button-group">
+      <button type="button" class="btn btn-default politician-like-button">
+        <%= link_to fa_icon("thumbs-up"), politician_likes_like_path(politician_id: user.id), class: 'like' %>
+        <%= user.likes %><br>
+      </button>
+      <button type="button" class="btn btn-default politician-dislike-button">
+        <%= link_to fa_icon("thumbs-down"), politician_likes_dislike_path(politician_id: user.id), class: 'dislike' %>
+        <%= user.dislikes %>
+      </button>
+    </div>
+    
+  <% end %>
+
+  <% if current_user.try(:admin?) %>
+  	<% if user.politician? %>
+  		<%= link_to 'Turn user to elector', "users/#{user.id}/turn_to_elector" %>
+  	<% else %>
+  		<%= link_to 'Turn user to Politician', "users/#{user.id}/turn_to_politician" %>
+  	<% end %>
+  <% end %>
+</div>
