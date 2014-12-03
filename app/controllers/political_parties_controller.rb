@@ -7,6 +7,7 @@ class PoliticalPartiesController < ApplicationController
 	end
 
 	def show
+		@users = @political_party.users
 	end
 
 	def new

@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
 	def ranking
-		#TODO implementar ranking nessa ação neste controller
 		@politicians = User.where(politician: true)
 		@ranking = @politicians.map { |u|
 			{ id: u.id, proportion: u.likes_percentage }

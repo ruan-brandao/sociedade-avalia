@@ -1,12 +1,16 @@
 <div class="profile">
   <%= image_tag user.profile_picture.url, class: "profile-picture" %>
   <h2 class="profile-name">
-    <%= user.full_name %> 
+    <%= link_to user.full_name, "/#{user.username}" %> 
     <%= fa_icon("check-circle", class: 'profile-icon') if user.politician? %>
   </h2>
 
   <% if user.politician? && user.political_party_id %>
-    <span class="profile-political-party-name"><%= user.political_party.siglum %></span>
+    <% if user_signed_in? && current_user != user %>
+      <%= link_to user.political_party.siglum, political_party_path(user.political_party), class: 'profile-political-party-name-with-button' %>
+    <% else %>
+      <%= link_to user.political_party.siglum, political_party_path(user.political_party), class: 'profile-political-party-name' %>
+    <% end %>
   <% end %>
 
   <% if user_signed_in? && current_user != user %>
