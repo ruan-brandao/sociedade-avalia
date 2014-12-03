@@ -49,7 +49,7 @@
     <% resource.political_party ||= PoliticalParty.new %>
       <div class="field">
         <%= f.label :political_party_id %><br />
-        <%= f.select :political_party_id, parties, class: 'form-control' %>
+        <%= f.select :political_party_id, parties, {}, class: "form-control" %>
       </div>
     <% end %>
 

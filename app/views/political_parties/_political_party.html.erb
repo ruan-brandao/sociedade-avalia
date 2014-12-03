@@ -1,9 +1,8 @@
 <div class="row">
   <%= div_for political_party, class: ".col-sm-8" do %>
-    <%= image_tag 'http://www.pt.org.br/wp-content/themes/pt/library/images/logo-site.png', class: "political-party-picture" %>
+    <%= image_tag political_party.picture.url, class: "political-party-picture" %>
 
     <div class="political-party-info">
-      <%#= image_tag political_party.picture.url, class: "political-party-picture" %>
       <%= political_party.name %><br>
       <%= political_party.siglum %> - <%= political_party.number.to_i %><br>
       <%= political_party.position %>
