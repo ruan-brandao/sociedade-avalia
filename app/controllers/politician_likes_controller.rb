@@ -4,11 +4,13 @@ class PoliticianLikesController < ApplicationController
   def like
   	@politician_like.value = true
   	@politician_like.save unless current_user.has_liked_politician?(User.where(id: @politician_like.liked_id).last.id)
+    redirect_to :back
   end
 
   def dislike
   	@politician_like.value = false
   	@politician_like.save unless current_user.has_liked_politician?(User.where(id: @politician_like.liked_id).last.id)
+    redirect_to :back
   end
 
   private
