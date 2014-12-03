@@ -25,6 +25,11 @@
 .post-content {
 	padding: 10 5px;
 	margin: 10px;
+	max-width: 100%;
+
+	p {
+		max-width: 100%;
+	}
 }
 
 .post-footer{

@@ -24,19 +24,47 @@
 		<% end %>
 
 		<div class="post-content">
-			<%= post.content %>
+			<p><%= post.content %></p>
 		</div>
 	  
 
 	  <div class="post-footer btn-group">
-			<button type="button" class="like btn btn-default">
-				<%= link_to fa_icon("thumbs-up lg"), post_likes_like_path(post_id: post.id) %>
-				<%= post.likes %>
-			</button>
-		  <button type="button" class="dislike btn btn-default">
-		  	<%= link_to fa_icon("thumbs-down lg"), post_likes_dislike_path(post_id: post.id) %>
-				<%= post.dislikes %>
-		  </button>
+	  	<% if current_user.has_liked_post?(post) %>
+	  		<% if post_like_value(post, current_user) == 1 %>
+		  		<%= link_to fa_icon("thumbs-up lg", text: post.likes), 
+											post_likes_like_path(post_id: post.id), 
+											type: 'button', 
+											class: 'link-button like btn btn-default', disabled: "disabled" %>
+					
+			  	<%= link_to fa_icon("thumbs-down lg", text: post.dislikes), 
+			  							post_likes_dislike_path(post_id: post.id), 
+			  							type: 'button', 
+			  							class: 'link-button dislike btn btn-default' %>
+
+	  		<% else %>
+	  			<%= link_to fa_icon("thumbs-up lg", text: post.likes), 
+											post_likes_like_path(post_id: post.id), 
+											type: 'button', 
+											class: 'link-button like btn btn-default' %>
+					
+			  	<%= link_to fa_icon("thumbs-down lg", text: post.dislikes), 
+			  							post_likes_dislike_path(post_id: post.id), 
+			  							type: 'button', 
+			  							class: 'link-button dislike btn btn-default', disabled: "disabled" %>
+	  		<% end %>
+
+	  	<% else %>
+	  		<%= link_to fa_icon("thumbs-up lg", text: post.likes), 
+										post_likes_like_path(post_id: post.id), 
+										type: 'button', 
+										class: 'link-button like btn btn-default' %>
+				
+		  	<%= link_to fa_icon("thumbs-down lg", text: post.dislikes), 
+		  							post_likes_dislike_path(post_id: post.id), 
+		  							type: 'button', 
+		  							class: 'link-button dislike btn btn-default' %>
+	  	<% end %>
+				
 		</div>
 
 	<% end %>
