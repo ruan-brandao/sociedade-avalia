@@ -57,7 +57,7 @@
     </div>
 
     <div class="btn-group politician-like-button-group">
-      <% if current_user.has_liked_politician?(user) %>
+      <% if user_signed_in? && current_user.has_liked_politician?(user) %>
         <% if politician_like_value(current_user, user) %>
           <%= link_to fa_icon("thumbs-up", text: user.likes), 
                       politician_likes_like_path(politician_id: user.id), 
