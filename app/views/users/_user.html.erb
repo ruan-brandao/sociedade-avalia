@@ -57,16 +57,44 @@
     </div>
 
     <div class="btn-group politician-like-button-group">
-      <button type="button" class="btn btn-default politician-like-button">
-        <%= link_to fa_icon("thumbs-up"), politician_likes_like_path(politician_id: user.id), class: 'like' %>
-        <%= user.likes %><br>
-      </button>
-      <button type="button" class="btn btn-default politician-dislike-button">
-        <%= link_to fa_icon("thumbs-down"), politician_likes_dislike_path(politician_id: user.id), class: 'dislike' %>
-        <%= user.dislikes %>
-      </button>
+      <% if current_user.has_liked_politician?(user) %>
+        <% if politician_like_value(current_user, user) %>
+          <%= link_to fa_icon("thumbs-up", text: user.likes), 
+                      politician_likes_like_path(politician_id: user.id), 
+                      type: 'button',
+                      class: 'like btn btn-default politician-like-button',
+                      disabled: "disabled" %>
+          
+          <%= link_to fa_icon("thumbs-down", text: user.dislikes), 
+                      politician_likes_dislike_path(politician_id: user.id), 
+                      type: 'button', 
+                      class: 'dislike btn btn-default politician-dislike-button' %>
+
+        <% else %>
+          <%= link_to fa_icon("thumbs-up", text: user.likes), 
+                      politician_likes_like_path(politician_id: user.id), 
+                      type: 'button',
+                      class: 'like btn btn-default politician-like-button' %>
+          
+          <%= link_to fa_icon("thumbs-down", text: user.dislikes), 
+                      politician_likes_dislike_path(politician_id: user.id), 
+                      type: 'button', 
+                      class: 'dislike btn btn-default politician-dislike-button',
+                      disabled: "disabled" %>
+
+        <% end %>
+      <% else %>
+        <%= link_to fa_icon("thumbs-up", text: user.likes), 
+                    politician_likes_like_path(politician_id: user.id), 
+                    type: 'button',
+                    class: 'like btn btn-default politician-like-button' %>
+        
+        <%= link_to fa_icon("thumbs-down", text: user.dislikes), 
+                    politician_likes_dislike_path(politician_id: user.id), 
+                    type: 'button', 
+                    class: 'dislike btn btn-default politician-dislike-button' %>
+      <% end %>
     </div>
-    
   <% end %>
 
   <% if current_user.try(:admin?) %>

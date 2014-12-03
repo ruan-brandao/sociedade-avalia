@@ -34,7 +34,8 @@
 		  		<%= link_to fa_icon("thumbs-up lg", text: post.likes), 
 											post_likes_like_path(post_id: post.id), 
 											type: 'button', 
-											class: 'link-button like btn btn-default', disabled: "disabled" %>
+											class: 'link-button like btn btn-default', 
+											disabled: "disabled" %>
 					
 			  	<%= link_to fa_icon("thumbs-down lg", text: post.dislikes), 
 			  							post_likes_dislike_path(post_id: post.id), 
@@ -50,7 +51,8 @@
 			  	<%= link_to fa_icon("thumbs-down lg", text: post.dislikes), 
 			  							post_likes_dislike_path(post_id: post.id), 
 			  							type: 'button', 
-			  							class: 'link-button dislike btn btn-default', disabled: "disabled" %>
+			  							class: 'link-button dislike btn btn-default', 
+			  							disabled: "disabled" %>
 	  		<% end %>
 
 	  	<% else %>
