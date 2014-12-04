@@ -4,11 +4,15 @@ class MyDeviseMailer < Devise::Mailer
   default template_path: 'devise/mailer' 
   
   def self.confirmation_instructions(record, token, opts = {})
-    new(:confirmation_instructions, record, token, opts)
+  	mandrill = Mandrill::API.new ENV['MANDRILL_APIKEY']
+    message = new(:confirmation_instructions, record, token, opts)
+    mandrill.messages.send
   end
 
   def self.reset_password_instructions(record, token, opts = {})
-    new(:reset_password_instructions, record, token, opts)
+  	mandrill = Mandrill::API.new ENV['MANDRILL_APIKEY']
+    message = new(:reset_password_instructions, record, token, opts)
+    mandrill.messages.send
   end
 
   def self.unlock_instructions(record, token, opts = {})
