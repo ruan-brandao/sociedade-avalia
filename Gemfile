@@ -14,7 +14,6 @@ group :production do
 end
 
 gem 'sidekiq'
-gem 'devise-async'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -40,6 +39,8 @@ gem 'railroady'
 
 gem 'sweet-alert-confirm'
 gem 'sweet-alert'
+
+gem 'devise-async'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
