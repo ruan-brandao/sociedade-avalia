@@ -13,8 +13,6 @@ group :production do
 	gem 'mandrill-api'
 end
 
-gem 'sidekiq'
-
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass', '~> 3.1.1'
 gem 'font-awesome-rails'
@@ -41,6 +39,8 @@ gem 'sweet-alert-confirm'
 gem 'sweet-alert'
 
 gem 'devise-async'
+gem 'delayed_job_active_record'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
