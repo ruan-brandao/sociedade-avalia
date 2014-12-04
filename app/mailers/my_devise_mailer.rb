@@ -7,12 +7,14 @@ class MyDeviseMailer < Devise::Mailer
   	mandrill = Mandrill::API.new ENV['MANDRILL_APIKEY']
     message = new(:confirmation_instructions, record, token, opts)
     mandrill.messages.send
+    super
   end
 
   def self.reset_password_instructions(record, token, opts = {})
   	mandrill = Mandrill::API.new ENV['MANDRILL_APIKEY']
     message = new(:reset_password_instructions, record, token, opts)
     mandrill.messages.send
+    super
   end
 
   def self.unlock_instructions(record, token, opts = {})
