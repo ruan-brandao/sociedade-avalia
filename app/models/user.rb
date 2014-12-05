@@ -53,6 +53,10 @@ class User < ActiveRecord::Base
   	"#{self.first_name} #{self.last_name}"
   end
 
+  def self.search(query)
+    where("username like ?", "%#{query}%")
+  end
+
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
   end

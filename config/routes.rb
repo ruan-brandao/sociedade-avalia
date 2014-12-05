@@ -16,6 +16,7 @@ SociedadeAvalia::Application.routes.draw do
   get 'users/following'
   get 'users/followers'
   get 'users/home'
+  get 'users/search'
   get 'home', to: 'users#home'
   get 'profiles/show'
   get "users/:id/turn_to_politician", to: "profiles#turn_to_politician"

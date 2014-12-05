@@ -28,14 +28,15 @@
 			  </ul>
 	 		</div>
 
-	 		<form class="navbar-collapse collapse pull-right">
+	 		<div class="navbar-collapse collapse pull-right">
 	 			<div class="nav navbar-nav navbar-search-form input-group">
-
-					  <input type="text" class="form-control" >
-					  <span class="input-group-addon"><i class="fa fa-search"></i></span>
-
+	 				<span class="input-group-addon"><i class="fa fa-search"></i></span>
+	 				<%= form_tag(users_search_path, :method => "get") do %>
+	 					<%= text_field_tag :search, params[:search], placeholder: "Buscar Usuários", class: "form-control" %>
+			  		<%= submit_tag '', :name => nil, class: "hidden" %>
+	 				<% end %>
 				</div>
-	 		</form>
+	 		</div>
 
 			<%= link_to(fa_icon("check-square 3x", class: "home-icon"), '/', class: "home-link")  %>
 

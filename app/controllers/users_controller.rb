@@ -14,6 +14,12 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def search
+    if params[:search]
+      @users = User.search(params[:search])
+    end
+  end
+
   def home
     redirect_to '/' unless user_signed_in?
     @posts = current_user.feed if user_signed_in?
