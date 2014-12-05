@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def search
     if params[:search]
       @users = User.search(params[:search])
+      redirect_to :back, alert: "A busca não retornou resultados." if @users.empty?
     end
   end
 
