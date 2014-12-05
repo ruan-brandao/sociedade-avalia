@@ -77,3 +77,8 @@ header .fa {
 	border-color: #eee;
 }
 
+@media (max-width: 340px) {
+	.sign-up-button {
+		display: none;
+	}
+}
