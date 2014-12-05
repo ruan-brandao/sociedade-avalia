@@ -30,23 +30,19 @@
   <% end %>
 
   <div class="stats btn-group">
-  <button type="button" class="btn btn-default">
-    <a href="/<%= user.username %>/following">
+    <a href="/<%= user.username %>/following" type="button" class="btn btn-default">
       <strong id="following" class="stat">
         <%= user.followed_users.count %>
       </strong><br>
       Seguindo
     </a>
-  </button>
-  <button type="button" class="btn btn-default">
-    <a href="/<%= user.username %>/followers">
+    <a href="/<%= user.username %>/followers" type="button" class="btn btn-default">
       <strong id="followers" class="stat">
         <%= user.followers.count %>
       </strong><br>
       Seguidores
-    </a>
-  </button>
-</div>
+    </a>  
+  </div>
 
   <% if  user.politician? %>
     <div class="progress politician-like-bar">
