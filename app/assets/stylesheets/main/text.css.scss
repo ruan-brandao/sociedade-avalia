@@ -1,0 +1,25 @@
+.text-wrapper {
+	h1 {
+		text-align: center;
+	}
+
+	p {
+		font-size: 1.3em;
+	}	
+}
+
+.icon-with-text {
+	font-size: 1.5em;
+	text-align: center;
+	margin: 1em auto;
+
+	a,
+	a:visited {
+		color: #333333;
+	}
+
+	a:hover,
+	a:focus {
+		color: black;
+	}
+}
