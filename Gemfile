@@ -42,6 +42,8 @@ gem 'devise-async'
 gem 'delayed_job_active_record'
 gem 'sidekiq'
 
+gem 'pusher'
+
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta'
   gem 'rspec-its'
