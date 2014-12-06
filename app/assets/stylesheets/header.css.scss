@@ -57,6 +57,11 @@ header .fa {
 	padding: .2em;
 	background-color: #e57d1d;
 	margin-top: .7em;
+	max-width: 350px;
+}
+
+#search-input {
+	border-radius: 0 5px 5px 0;
 }
 
 .navbar-menu-dropdown {

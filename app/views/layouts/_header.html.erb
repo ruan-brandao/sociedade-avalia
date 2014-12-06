@@ -32,7 +32,7 @@
 	 			<div class="nav navbar-nav navbar-search-form input-group">
 	 				<span class="input-group-addon"><i class="fa fa-search"></i></span>
 	 				<%= form_tag(users_search_path, :method => "get") do %>
-	 					<%= text_field_tag :search, params[:search], placeholder: "Buscar Usuários", class: "form-control" %>
+	 					<%= text_field_tag :search, params[:search], placeholder: "Buscar Usuários", class: "form-control", id: 'search-input' %>
 			  		<%= submit_tag '', :name => nil, class: "hidden" %>
 	 				<% end %>
 				</div>
