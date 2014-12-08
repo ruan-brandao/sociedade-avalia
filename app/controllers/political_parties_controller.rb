@@ -28,7 +28,7 @@ class PoliticalPartiesController < ApplicationController
 	end
 
 	def update
-		if @political_party.save
+		if @political_party.update(political_party_params)
 			redirect_to @political_party
 		else
 			render action: 'new'
