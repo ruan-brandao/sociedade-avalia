@@ -2,7 +2,7 @@
 	<%= div_for post, :class => ".col-sm-8" do %>
 
 		<div class="post-author">
-			<%= image_tag post.user.profile_picture.url, class: "post-author-picture" %>
+			<%= image_tag 'missing.png', class: "post-author-picture" %>
 			<%= link_to post.user.full_name, "/#{post.user.username}" %><br />
 			<%= link_to time_ago_in_words(post.created_at), post %>
 		</div>

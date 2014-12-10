@@ -1,5 +1,5 @@
 <div class="profile">
-  <%= image_tag user.profile_picture.url, class: "profile-picture" %>
+  <%= image_tag 'missing.png', class: "profile-picture" %>
   <h2 class="profile-name">
     <%= link_to user.full_name, "/#{user.username}" %> 
     <%= fa_icon("check-circle", class: 'profile-icon') if user.politician? %>
