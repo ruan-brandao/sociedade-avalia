@@ -42,7 +42,7 @@
 
 	 		<% if user_signed_in? %>
 	 			<%= link_to(fa_icon('home 2x', class: "home-icon"), '/home') %>
-	 			<i class="fa fa-bell fa-2x navbar-icon"></i>
+	 			<%= link_to(fa_icon('bell 2x', class: "home-icon"), "#{current_user.username}/followers") %>
 	 		<% else %>
 	 			<%= link_to t('devise.views.sign_up'), new_user_registration_path, :class => "btn btn-default navbar-button sign-up-button" %>
 	 			<%= link_to t('devise.views.sign_in'), user_session_path, :class => "btn btn-default navbar-button" %>
