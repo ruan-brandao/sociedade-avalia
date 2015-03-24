@@ -10,14 +10,14 @@ class User < ActiveRecord::Base
 
   belongs_to :political_party
 
-  #Relationships associations (following) 
-  has_many :relationships, 
-            foreign_key: "follower_id", 
+  #Relationships associations (following)
+  has_many :relationships,
+            foreign_key: "follower_id",
             dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
 
-  has_many :reverse_relationships, 
-           foreign_key: "followed_id", 
+  has_many :reverse_relationships,
+           foreign_key: "followed_id",
            class_name: "Relationship",
            dependent: :destroy
   has_many :followers, through: :reverse_relationships, source: :follower
@@ -35,17 +35,17 @@ class User < ActiveRecord::Base
   has_many :likes_received, through: :false_politician_likes, source: :liker
 
   #Paperclip Image validations
-  has_attached_file :profile_picture, 
-                    :styles => { :medium => "300x300>", 
-                    :thumb => "100x100>" }, 
+  has_attached_file :profile_picture,
+                    :styles => { :medium => "300x300>",
+                    :thumb => "100x100>" },
                     :default_url => "/assets/:style/missing.png"
   validates_attachment_content_type :profile_picture, :content_type => /\Aimage\/.*\Z/
   validates_attachment_size :profile_picture, less_than: 1.megabytes
 
   validates :first_name, :last_name, :birth_date, :gender, :username, presence: true
-  validates :username, uniqueness: true
+  validates :username, uniqueness: true, format: { with: /\A[a-zA-Z0-9]+\Z/, message: 'não pode conter espaços em branco.' }
   validates :gender, inclusion: { in: %w(male female other) }
-  validates :state, inclusion: { in: %w(AC AL AP AM BA CE DF ES GO 
+  validates :state, inclusion: { in: %w(AC AL AP AM BA CE DF ES GO
                                         MA MT MS MG PA PB PR PE PI
                                         RJ RN RS RO RR SC SP SE TO) }, allow_nil:true
 

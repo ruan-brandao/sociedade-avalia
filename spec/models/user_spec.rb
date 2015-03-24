@@ -59,7 +59,9 @@ describe User do
   it { should validate_inclusion_of(:gender).in_array(%w(male female other)) }
   it { should validate_presence_of(:username) }
   it { should validate_uniqueness_of(:username) }
-  it { should validate_inclusion_of(:state).in_array(%w(AC AL AP AM BA CE DF ES GO 
+	it { should allow_value('testuser', 'TestUser', 'Testuser123').for(:username) }
+	it { should_not allow_value('test user').for(:username) }
+  it { should validate_inclusion_of(:state).in_array(%w(AC AL AP AM BA CE DF ES GO
                                         								MA MT MS MG PA PB PR PE PI
                                         								RJ RN RS RO RR SC SP SE TO)) }
   it { should_not validate_presence_of(:state) }
